@@ -8,7 +8,7 @@ use xqwtxon\SlapperCooldownV2\SlapperCooldownListener;
 use pocketmine\utils\TextFormat;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 
-class SlapperCooldown extends PluginBase implements SlapperCooldownInfo {
+class Main extends PluginBase implements SlapperCooldownInfo {
 
     public function onLoad() :void {
         $this->saveResource("config.yml");
@@ -31,6 +31,7 @@ class SlapperCooldown extends PluginBase implements SlapperCooldownInfo {
     }
     
 	public function onEnable() :void{
+	    $log = $this->getServer()->getLogger(); // gets the logger
 	    if (SlapperCooldownInfo::PROTOCOL_VERSION == ProtocolInfo::CURRENT_PROTOCOL){
                 $log->info(TextFormat::GREEN."[INFO] Your SlapperCooldown is Compatible with your version!");
             } else {
@@ -42,8 +43,8 @@ class SlapperCooldown extends PluginBase implements SlapperCooldownInfo {
 	    $this->saveResource("config.yml"); // if not saved
 	    $this->saveDefaultConfig(); // should be saved
 	    $cfg = $this->getConfig(); // gets the config
-	    $log = $this->getServer()->getLogger(); // gets the logger
 	    $toggle = $cfg->get("enabled"); // toggleer
+	    $delay = $cfg->get("delay"); // delay of hits
 	    if (!isset($toggle)){ // if leaved the toggle
 	        $log->error("[ERROR] You leaved blank in config the option 'enabled'! So, it automatically set it to 'true' by default."); // message if they leaved blank the toggle
 	        $cfg->set("enabled", true); // the config automatically sets to true
