@@ -5,6 +5,8 @@ namespace xqwtxon\SlapperCooldownV2;
 use pocketmine\plugin\PluginBase;
 use xqwtxon\SlapperCooldownV2\SlapperCooldownInfo;
 use xqwtxon\SlapperCooldownV2\SlapperCooldownListener;
+use pocketmine\utils\TextFormat;
+use pocketmine\network\mcpe\protocol\ProtocolInfo;
 
 class SlapperCooldown extends PluginBase implements SlapperCooldownInfo {
 
@@ -23,7 +25,7 @@ class SlapperCooldown extends PluginBase implements SlapperCooldownInfo {
             $this->saveResource("config.yml");
         }
         
-        if (SlapperRotationInfo::IS_DEVELOPMENT_BUILD == true){
+        if (SlapperCooldownInfo::IS_DEVELOPMENT_BUILD == true){
             $log->warning(TextFormat::RED."[WARNING] Your SlapperCooldown is in development build! You may expect crash during the plugin. You can make issue about this plugin by visiting plugin github issue!");
         }
     }
