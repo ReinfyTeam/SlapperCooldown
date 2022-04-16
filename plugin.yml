@@ -1,7 +1,8 @@
-name: SlapperCooldown
-author: jojoe77777
-version: 1.0.0
-main: jojoe77777\SlapperCooldown\SlapperCooldown
-api: [3.0.0-ALPHA11, 3.0.0-ALPHA12]
-website: https://github.com/jojoe77777/SlapperCooldown
+name: SlapperCooldownV2
+author: xqwtxon
+version: 2.0.0
+main: Main
+src-namespace-prefix: xqwtxon\SlapperCooldownV2
+api: 4.0.0
 depend: [Slapper]
+description: Slap the Slapper with Cooldown!

@@ -1,37 +1,35 @@
 <?php
 
-namespace jojoe77777\SlapperCooldown;
+namespace xqwtxon\SlapperCooldownV2;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
-use pocketmine\plugin\PluginBase;
 use slapper\events\SlapperHitEvent;
+use xqwtxon\SlapperCooldownV2\Main;
 
-class SlapperCooldown extends PluginBase implements Listener {
-
-	/** @var array */
-	public $lastHit = [];
-	/** @var array */
-	private $cfg = [];
-
-	public function onEnable() {
-	    $this->saveDefaultConfig();
-	    $this->cfg = $this->getConfig()->getAll();
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
+class SlapperCooldownListener implements Listener {
+    
+    public function __construct(private Main $plugin){
+        //NOOP
     }
-
+    
+    /** @var array */
+	private $lastHit = [];
+	
     /**
      * @param SlapperHitEvent $ev
      */
 	public function onSlapperHit(SlapperHitEvent $ev){
 	    $name = $ev->getDamager()->getName();
+	    $delay = $this->plugin->getConfig()->get("delay");
+	    $message = $this->plugin->getConfig()->get("message");
 	    if(!isset($this->lastHit[$name])){
 	        $this->lastHit[$name] = microtime(true);
 	        return;
         }
-        if(($this->lastHit[$name] + $this->cfg["delay"]) > (microtime(true))){
-            $ev->setCancelled();
-            $ev->getDamager()->sendTip($this->cfg["message"]);
+        if(($this->lastHit[$name] + $delay) > (microtime(true))){
+            $ev->cancel();
+            $ev->getDamager()->sendTip($message);
         } else {
             $this->lastHit[$name] = microtime(true);
         }
