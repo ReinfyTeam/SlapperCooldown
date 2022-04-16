@@ -13,7 +13,7 @@ class SlapperCooldownListener implements Listener {
         //NOOP
     }
     
-    /** @var array */
+    /** @var var array<string, float> */
 	private $lastHit = [];
 	
     /**
