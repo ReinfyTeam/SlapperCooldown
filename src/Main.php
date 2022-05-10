@@ -15,27 +15,27 @@ class Main extends PluginBase implements SlapperCooldownInfo {
         $config = $this->getConfig();
         $log = $this->getServer()->getLogger();
         $version = SlapperCooldownInfo::PLUGIN_VERSION;
-        $log->notice(TextFormat::YELLOW."[INFO] You are running §aSlapperCooldown {$version} §eby xqwtxon!");
         if ($config->get("config-version") == SlapperCooldownInfo::CONFIG_VERSION){
-            $log->info("[SUCCESS] Loaded SlapperCooldown!");
+            return;
         } else {
-            $log->notice("[WARNING] Your config is outdated!");
-            $log->info("[WARNING] Your old config.yml was as old-config.yml");
+            $log->notice("Your config is outdated!");
+            $log->info("Your old config.yml was as old-config.yml");
             @rename($this->getDataFolder(). 'config.yml', 'old-config.yml');
             $this->saveResource("config.yml");
         }
         
         if (SlapperCooldownInfo::IS_DEVELOPMENT_BUILD == true){
-            $log->warning(TextFormat::RED."[WARNING] Your SlapperCooldown is in development build! You may expect crash during the plugin. You can make issue about this plugin by visiting plugin github issue!");
+            $log->warning(TextFormat::RED."Your SlapperCooldown is in development build! You may expect crash during the plugin. You can make issue about this plugin by visiting plugin github issue!");
         }
     }
     
 	public function onEnable() :void{
-	    $log = $this->getServer()->getLogger(); // gets the logger
+            $this->saveDefaultConfig();
+	    $this->getLogger(); // gets the logger
 	    if (SlapperCooldownInfo::PROTOCOL_VERSION == ProtocolInfo::CURRENT_PROTOCOL){
-                $log->info(TextFormat::GREEN."[INFO] Your SlapperCooldown is Compatible with your version!");
+                $log->info(TextFormat::GREEN."Your SlapperCooldown is Compatible with your version!");
             } else {
-                $log->info(TextFormat::RED."[ERROR] Your SlapperCooldown isnt Compatible with your version!");
+                $log->critical(TextFormat::RED."Your SlapperCooldown isnt Compatible with your version!");
                 $this->getServer()->getPluginManager()->disablePlugin($this);
                 return;
             }
@@ -63,19 +63,10 @@ class Main extends PluginBase implements SlapperCooldownInfo {
 	        $cfg->set("delay", 0.5);
 	        return;
 	    }
-	    /**
-	     * TODO: @int $delay
-	     * Boring rn.
-	    if (){
+	    if (is_int($delay)){
 	        $log->error("[INFO] The hit delay must be int not string/bool! by default it automatically set delay to 0.5!");
 	        $cfg->set("delay", 0.5);
-	    }
-	    */
-    }
-    
-    public function onDisable() :void{
-        $config = $this->getConfig();
-        $log = $this->getServer()->getLogger();
-        $log->info(TextFormat::RED."Successfully disabled the plugin!");
+                $this->saveDefaultConfig();
+	   } 
     }
 }
