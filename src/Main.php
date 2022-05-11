@@ -31,7 +31,7 @@ class Main extends PluginBase implements SlapperCooldownInfo {
     
 	public function onEnable() :void{
             $this->saveDefaultConfig();
-	    $this->getLogger(); // gets the logger
+	    $log = $this->getLogger(); // gets the logger
 	    if (SlapperCooldownInfo::PROTOCOL_VERSION == ProtocolInfo::CURRENT_PROTOCOL){
                 $log->info(TextFormat::GREEN."Your SlapperCooldown is Compatible with your version!");
             } else {
