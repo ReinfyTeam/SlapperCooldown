@@ -3,7 +3,6 @@
 namespace xqwtxon\SlapperCooldownV2;
 
 use pocketmine\plugin\PluginBase;
-use xqwtxon\SlapperCooldownV2\SlapperCooldownInfo;
 use xqwtxon\SlapperCooldownV2\SlapperCooldownListener;
 use pocketmine\utils\TextFormat;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
