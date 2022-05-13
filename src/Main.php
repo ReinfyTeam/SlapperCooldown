@@ -44,14 +44,9 @@ class Main extends PluginBase{
 	    }
 	    
 	    if (!isset($delay)){
-	        $log->error("The hit delay must be int not string/bool! by default automatically set to 0.5!");
+	        $log->error("The hit delay must not blanked! by default automatically set to 0.5!");
 	        $cfg->set("delay", 0.5);
 	        return;
-	    }
-	    if (is_int($delay)){
-	        $log->error("The hit delay must be int not string/bool! by default it automatically set delay to 0.5!");
-	        $cfg->set("delay", 0.5);
-                return;
 	   } 
     }
 }
