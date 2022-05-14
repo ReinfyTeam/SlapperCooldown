@@ -13,7 +13,7 @@ class Main extends PluginBase{
         $this->saveResource("config.yml");
         $config = $this->getConfig();
         $log = $this->getServer()->getLogger();
-        if ($config->get("config-version") == "1.0.0"){
+        if ($config->get("config-version") == "1.0.1"){
             return;
         } else {
             $log->notice("Your config is outdated!");
@@ -28,20 +28,7 @@ class Main extends PluginBase{
 	    // nice comment be like
 	    $this->saveDefaultConfig(); // should be saved
 	    $cfg = $this->getConfig(); // gets the config
-	    $toggle = $cfg->get("enabled"); // toggleer
-	    $delay = $cfg->get("delay"); // delay of hits
-	    if (!isset($toggle)){ // if leaved the toggle
-	        $log->error("You leaved blank in config the option 'enabled'! So, it automatically set it to 'true' by default."); // message if they leaved blank the toggle
-	        $cfg->set("enabled", true); // the config automatically sets to true
-	        return;
-	    }
-	    if ($toggle == true){
-            $this->getServer()->getPluginManager()->registerEvents(new SlapperCooldownListener($this), $this);
-	    }
-	    if ($toggle == false){
-	        $log->notice("The SlapperCooldown was disabled by configuration. To enabled it, set in 'config.yml' the option 'enabled'!");
-	        $this->getServer()->getPluginManager()->disablePlugin($this);
-	    }
+	    $delay = $cfg->get("delay"); // delay of hit
 	    
 	    if (!isset($delay)){
 	        $log->error("The hit delay must not blanked! by default automatically set to 0.5!");
