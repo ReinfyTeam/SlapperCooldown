@@ -1,11 +1,11 @@
 <?php
 
-namespace xqwtxon\SlapperCooldownV2;
+namespace ReinfyTeam\SlapperCooldown;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 use slapper\events\SlapperHitEvent;
-use xqwtxon\SlapperCooldownV2\Main;
+use ReinfyTeam\SlapperCooldown\Main;
 
 class SlapperCooldownListener implements Listener {
     
