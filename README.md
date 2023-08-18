@@ -1,4 +1,4 @@
-# SlapperCooldownV2
+# SlapperCooldown
 [![](https://poggit.pmmp.io/shield.state/SlapperCooldown)](https://poggit.pmmp.io/p/SlapperCooldown)
 [![](https://poggit.pmmp.io/shield.api/SlapperCooldown)](https://poggit.pmmp.io/p/SlapperCooldown)<br>
 It is a plugin that Slappers can now hit cooldown/delay!
