@@ -1,10 +1,10 @@
 ---
-name: SlapperCooldownV2
-author: xqwtxon
-version: 2.0.1
-main: xqwtxon\SlapperCooldownV2\Main
-src-namespace-prefix: xqwtxon\SlapperCooldownV2
-api: 4.0.0
+name: SlapperCooldown
+author: ReinfyTeam
+version: 1.0.2
+main: ReinfyTeam\SlapperCooldown\Main
+src-namespace-prefix: ReinfyTeam\SlapperCooldown
+api: 5.0.0
 depend: Slapper
 description: Slap the Slapper with Cooldown!
 ...
