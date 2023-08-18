@@ -1,9 +1,9 @@
 <?php
 
-namespace xqwtxon\SlapperCooldownV2;
+namespace ReinfyTeam\SlapperCooldown;
 
 use pocketmine\plugin\PluginBase;
-use xqwtxon\SlapperCooldownV2\SlapperCooldownListener;
+use ReinfyTeam\SlapperCooldown\SlapperCooldownListener;
 use pocketmine\utils\TextFormat;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 
