@@ -19,10 +19,14 @@ class SlapperCooldownListener implements Listener {
     /**
      * @param SlapperHitEvent $ev
      */
-	public function onSlapperHit(SlapperHitEvent $ev){
+	public function onSlapperHit(SlapperHitEvent $ev) : void {
 	    $name = $ev->getDamager()->getName();
 	    $delay = $this->plugin->getConfig()->get("delay");
 	    $message = $this->plugin->getConfig()->get("message");
+	    if (!is_numeric($delay) || !is_string($message)) {
+	        return;
+	    }
+	    $delay = (float) $delay;
 	    if(!isset($this->lastHit[$name])){
 	        $this->lastHit[$name] = microtime(true);
 	        return;
@@ -36,7 +40,7 @@ class SlapperCooldownListener implements Listener {
         return;
     }
 
-    public function onPlayerQuit(PlayerQuitEvent $ev){
+	public function onPlayerQuit(PlayerQuitEvent $ev) : void {
         unset($this->lastHit[$ev->getPlayer()->getName()]);
     }
 }
