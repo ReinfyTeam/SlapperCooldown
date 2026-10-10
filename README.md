@@ -1,18 +1,18 @@
 # SlapperCooldown
 [![](https://poggit.pmmp.io/shield.state/SlapperCooldown)](https://poggit.pmmp.io/p/SlapperCooldown)
 [![](https://poggit.pmmp.io/shield.api/SlapperCooldown)](https://poggit.pmmp.io/p/SlapperCooldown)<br>
-It is a plugin that Slappers can now hit cooldown/delay!
+Adds a cooldown between player hits on Slappers.
 
 # Features
-- Ability to configure the distance view of the Slappers.
+- Configure the hit delay and the message shown when a player hits too quickly.
 
 # Disclaimer
-This plugin was designed and work in pocketmine. If you are using fork/spoon of PocketMine-MP. Your issues will automatically closed.
+This plugin is designed for PocketMine-MP. If you are using a fork or spoon of PocketMine-MP, please report issues to that project instead.
 
 # How to Install?
-- You must have Slapper Plugin, you can download from [poggit here](https://poggit.pmmp.io/p/Slapper/)!
+- You must have the Slapper plugin. You can download it from [Poggit](https://poggit.pmmp.io/p/Slapper/).
 - Just put this plugin in your `plugins/` folder, and it should work!<br>
-- You can configure the plugin by accessing `plugin_data/SlapperCooldown/config.yml`
+- You can configure the plugin in `plugin_data/SlapperCooldown/config.yml`.
 
 # Report a Issue/Bug
 You found a bug or a plugin issue?

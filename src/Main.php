@@ -27,6 +27,7 @@ class Main extends PluginBase{
 	    $log = $this->getLogger(); // gets the logger
 	    // nice comment be like
 	    $this->saveDefaultConfig(); // should be saved
+	    $this->getServer()->getPluginManager()->registerEvents(new SlapperCooldownListener($this), $this);
 	    $cfg = $this->getConfig(); // gets the config
 	    $delay = $cfg->get("delay"); // delay of hit
 	    
