@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ReinfyTeam\SlapperCooldown;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 use slapper\events\SlapperHitEvent;
-use ReinfyTeam\SlapperCooldown\Main;
 
-class SlapperCooldownListener implements Listener {
+final class SlapperCooldownListener implements Listener {
     
     public function __construct(private Main $plugin){
         //NOOP

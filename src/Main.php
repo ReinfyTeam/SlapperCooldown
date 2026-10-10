@@ -1,29 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ReinfyTeam\SlapperCooldown;
 
 use pocketmine\plugin\PluginBase;
-use ReinfyTeam\SlapperCooldown\SlapperCooldownListener;
-use pocketmine\utils\TextFormat;
-use pocketmine\network\mcpe\protocol\ProtocolInfo;
 
 class Main extends PluginBase{
 
-    public function onLoad() :void {
+    protected function onLoad() : void {
         $this->saveResource("config.yml");
         $config = $this->getConfig();
         $log = $this->getServer()->getLogger();
-        if ($config->get("config-version") == "1.0.1"){
+        if ($config->get("config-version") === "1.0.1"){
             return;
         } else {
             $log->notice("Your config is outdated!");
-            $log->info("Your old config.yml was as old-config.yml");
-            @rename($this->getDataFolder(). 'config.yml', 'old-config.yml');
-            $this->saveResource("config.yml");
+            $dataFolder = rtrim($this->getDataFolder(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+            if(!rename($dataFolder . "config.yml", $dataFolder . "old-config.yml")){
+                $log->error("Unable to preserve the old config.yml before migration.");
+                return;
+            }
+            $this->saveResource("config.yml", true);
         }
     }
     
-	public function onEnable() :void{
+	public function onEnable() : void{
 	    $log = $this->getLogger(); // gets the logger
 	    // nice comment be like
 	    $this->saveDefaultConfig(); // should be saved
@@ -34,6 +36,7 @@ class Main extends PluginBase{
 	    if (!isset($delay)){
 	        $log->error("The hit delay must not blanked! by default automatically set to 0.5!");
 	        $cfg->set("delay", 0.5);
+	        $this->saveConfig();
 	        return;
 	   } 
     }
