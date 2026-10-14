@@ -20,17 +20,17 @@ server distribution.
 # Disclaimer
 This plugin is designed for PocketMine-MP. If you are using a fork or spoon of PocketMine-MP, please report issues to that project instead.
 
-# How to Install?
+# How to install
 - You must have the Slapper plugin. You can download it from [Poggit](https://poggit.pmmp.io/p/Slapper/).
-- Just put this plugin in your `plugins/` folder, and it should work!<br>
+- Put this plugin in your server's `plugins/` folder.
 - You can configure the plugin in `plugin_data/SlapperCooldown/config.yml`.
 
-# Report a Issue/Bug
-You found a bug or a plugin issue?
+# Report an issue or bug
+Have you found a bug or another plugin issue?
 - Contact support in the [Discord Server](https://discord.gg/v2rNeHaptd)
 - Create an [Issue](https://github.com/ReinfyTeam/SlapperCooldown/issues)
-- Write your bug & the issue you are having with all informations including the crash or errors so I can track the issue.
-- Submit the issue and be patient for a response for a solution to your problem :D
+- Describe the problem and include relevant information, such as crash logs or error messages, so the issue can be investigated.
+- Submit the issue and wait for a response.
 
 # Build and test
 
