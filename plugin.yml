@@ -1,7 +1,7 @@
 ---
 name: SlapperCooldown
 author: ReinfyTeam
-version: 1.0.2
+version: 1.0.3
 main: ReinfyTeam\SlapperCooldown\Main
 src-namespace-prefix: ReinfyTeam\SlapperCooldown
 api: 5.0.0

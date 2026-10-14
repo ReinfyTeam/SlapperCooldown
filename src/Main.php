@@ -12,7 +12,7 @@ class Main extends PluginBase{
         $this->saveResource("config.yml");
         $config = $this->getConfig();
         $log = $this->getServer()->getLogger();
-        if ($config->get("config-version") === "1.0.1"){
+        if ($config->get("config-version") === "1.0.3"){
             return;
         } else {
             $log->notice("Your config is outdated!");
